@@ -1,5 +1,5 @@
 {
-  "name": "trezor-link",
+  "name": "@exodus/trezor-link",
   "version": "1.6.1",
   "description": "Trezor Link for browser",
   "main": "lib/index.js",
