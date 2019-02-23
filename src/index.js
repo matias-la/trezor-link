@@ -9,15 +9,8 @@ import LowlevelTransportWithSharedConnections from './lowlevel/withSharedConnect
 import FallbackTransport from './fallback';
 import WebUsbPlugin from './lowlevel/webusb';
 
-import 'whatwg-fetch';
-
-if (typeof window === `undefined`) {
-  // eslint-disable-next-line quotes
-  const fetch = require('node-fetch');
-  BridgeTransportV2.setFetch(fetch, true);
-} else {
-  BridgeTransportV2.setFetch(fetch, false);
-}
+const fetch = require('node-fetch');
+BridgeTransportV2.setFetch(fetch, true);
 
 export default {
   BridgeV2: BridgeTransportV2,

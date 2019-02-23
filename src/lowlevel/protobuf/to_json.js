@@ -13,11 +13,6 @@
 // intended just for our relatively small usecase.
 // But it works here.
 
-import {shim} from 'object.values';
-if (!Object.values) {
-  shim();
-}
-
 export function protocolToJSON(p: any): Object {
   // TODO: what if there are more files?
   const res = fileToJSON(p.file[2]);
@@ -118,4 +113,3 @@ function fieldToJSON(field: any): Object {
   res.id = field.number;
   return res;
 }
-

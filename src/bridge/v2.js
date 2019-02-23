@@ -6,7 +6,7 @@
 
 'use strict';
 
-import semvercmp from 'semver-compare';
+// import semvercmp from 'semver-compare';
 import {request as http, setFetch as rSetFetch} from './http';
 import type {AcquireInput, TrezorDeviceInfoWithSession, MessageFromTrezor} from '../transport';
 import * as check from '../highlevel-checks';
@@ -57,22 +57,22 @@ export default class BridgeTransport {
   @debugInOut
   async init(debug: ?boolean): Promise<void> {
     this.debug = !!debug;
-    await this._silentInit();
+    // await this._silentInit();
   }
 
-  async _silentInit(): Promise<void> {
-    const infoS: mixed = await http({
-      url: this.url,
-      method: `POST`,
-    });
-    const info = check.info(infoS);
-    this.version = info.version;
-    const newVersion = typeof this.newVersion === `string` ? this.newVersion : check.version(await http({
-      url: `${this.newestVersionUrl}?${Date.now()}`,
-      method: `GET`,
-    }));
-    this.isOutdated = semvercmp(this.version, newVersion) < 0;
-  }
+  // async _silentInit(): Promise<void> {
+  //   const infoS: mixed = await http({
+  //     url: this.url,
+  //     method: `POST`,
+  //   });
+  //   const info = check.info(infoS);
+  //   this.version = info.version;
+  //   const newVersion = typeof this.newVersion === `string` ? this.newVersion : check.version(await http({
+  //     url: `${this.newestVersionUrl}?${Date.now()}`,
+  //     method: `GET`,
+  //   }));
+  //   this.isOutdated = semvercmp(this.version, newVersion) < 0;
+  // }
 
   @debugInOut
   async configure(signedData: string): Promise<void> {
