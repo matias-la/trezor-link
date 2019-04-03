@@ -82,6 +82,14 @@ export default class BridgeTransport {
   }
 
   @debugInOut
+  async getVersion (): Promise<string> {
+    // $FlowIssue
+    const { version } = await this._post({ url: '/' })
+    this.version = version
+    return version
+  }
+
+  @debugInOut
   async listen(old: ?Array<TrezorDeviceInfoWithSession>): Promise<Array<TrezorDeviceInfoWithSession>> {
     if (old == null) {
       throw new Error(`Bridge v2 does not support listen without previous.`);
