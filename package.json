@@ -18,11 +18,14 @@
       "src/flow_fake_node_modules"
     ],
     "presets": [
-      ["env", {
-        "targets": {
-          "node": 8
+      [
+        "env",
+        {
+          "targets": {
+            "node": 8
+          }
         }
-      }]
+      ]
     ],
     "plugins": [
       "transform-es2015-template-literals",
@@ -59,7 +62,7 @@
   },
   "dependencies": {
     "json-stable-stringify": "^1.0.1",
-    "node-fetch": "~1.6.3",
+    "node-fetch": "2.6.0",
     "protobufjs-old-fixed-webpack": "3.8.5"
   }
 }
