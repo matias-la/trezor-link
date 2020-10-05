@@ -8,8 +8,8 @@ import BridgeTransportV2 from './bridge/v2';
 import LowlevelTransportWithSharedConnections from './lowlevel/withSharedConnections';
 import FallbackTransport from './fallback';
 import WebUsbPlugin from './lowlevel/webusb';
+import fetch from 'node-fetch'
 
-const fetch = require('node-fetch');
 BridgeTransportV2.setFetch(fetch, true);
 
 export default {
