@@ -6,7 +6,7 @@
 
 'use strict';
 
-import {patch} from './protobuf/monkey_patch';
+import {patch} from './../lowlevel/protobuf/monkey_patch';
 patch();
 
 // import semvercmp from 'semver-compare';
@@ -85,11 +85,11 @@ export default class BridgeTransport {
   }
 
   @debugInOut
-  async getVersion (): Promise<string> {
+  async getVersion(): Promise<string> {
     // $FlowIssue
-    const { version } = await this._post({ url: '/' })
-    this.version = version
-    return version
+    const { version } = await this._post({ url: `/` });
+    this.version = version;
+    return version;
   }
 
   @debugInOut
